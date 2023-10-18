@@ -16,6 +16,7 @@
                     exit;
             }
         }
+    
 
         public static function save() {
             $idAttendant = @$_REQUEST['idAttendant'];
@@ -94,14 +95,20 @@
                   $_SESSION['incripcion.all'] = $inscripcion;  
                 }
                 $msj ="TOTAL DE INSCRIPCIONES: $total";
+                header("Location: .../controllers/listar.php?msj=$msj");
+            }catch(Exception $error){
+                 $_SESSION['inscripcion.all'] = null;
+                 header("LocationL: .../controllers/listar.php?msj=Total Inscripciones: 0")
+            } 
+                
 
-            }
+        }
             
 
 
 
-        }
-    }
+    }   
+    
 
     InscriptionController::executeAction();
 ?>
